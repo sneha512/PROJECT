@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Login</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+        <link href="all.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div class="login">
+			<h1>LOGIN</h1>
+			<form action="authenticate.php" method="post">
+				<label for="NAME">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="NAME" placeholder="NAME" id="NAME" required>
+                
+				<label for="PHONE NUMBER">
+					<i class="fas fa-phone"></i>
+				</label>
+				<input type="number" <input type="text" pattern="[0-9]{10}" name="PHONE NUMBER" placeholder="PHONE NUMBER" id="PHONE NUMBER" required> 
+                
+                <label for="EMAIL">
+					<i class="fas fa-envelope"></i>
+				</label>
+				<input type="text" <input type="test"  <input type="EMAIL" name="EMAIL" placeholder="EMAIL" id="EMAIL" required> 
+                <div>
+				<input type="submit" value="Login">
+            </div>
+			</form>
+		</div>
+
+        <script type="text/javascript">
+            function myfunc(){
+                
+                var Name=document.getElementById("Name").value;
+                var Phone_Number=document.getElementById("Phone_Number").value; 
+                var Email=document.getElementById("Email").value;
+
+                var name=localStorage.setItem('Name', Name);
+                var phone=localStorage.setItem('Phone_Number', Phone_Number);
+                var em=localStorage.setItem('Email', Email);
+
+				var name=localStorage.getItem('Name', Name);
+                var phone=localStorage.getItem('Phone_Number', Phone_Number);
+                var em=localStorage.getItem('Email', Email);
+
+				var a,b,c;
+				a="sneha";
+				b="1234567890";
+				c="sneha@gmail.com";
+
+				if(a==name && b==phone && c==em){
+					alert("Login successful !");
+				}else{
+					alert("Invalid Details");
+				}
+
+
+            }
+            </script>
+	</body>
+</html>
