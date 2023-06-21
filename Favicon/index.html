@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Favicon Grabber</title>
+</head>
+<body>
+    <script type="text/javascript" >
+
+        function isValidURL(string)
+        {
+            var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+            return (res !== null)
+        }
+        function startIT()
+        {
+            var myurl=document.getElementById("urltext").value;
+            if(myurl==""){
+                alert("Please Enter URL");
+            }
+            else if(myurl!="" && isValidURL(myurl)==true)
+            {
+                 grabFAV();
+            }
+            else{
+                alert("Please Enter Vaild URL");
+            }
+        }
+    
+        function grabFAV()
+        {
+            var myurl=document.getElementById("urltext").value;
+            var myimg=document.getElementById("theimg");
+            var mysize=document.getElementById("size").value;
+            var duckapi= "https://icons.duckduckgo.com/ip3/";
+            var gapi = "https://s2.googleusercontent.com/s2/favicons?domain=";
+
+            if(mysize=="default")
+            {
+                var h1= "https://";
+                var h2= "http://";
+
+                myurl = myurl.replace(h1, "");
+                myurl = myurl.replace(h2, "");
+
+                myimg.src=duckapi + myurl + ".ico";
+            }
+            else if (mysize == "16") {
+               myimg.src = gapi + myurl + "&sz=16";
+            }
+
+            else if (mysize == "32") {
+              myimg.src = gapi + myurl + "&sz=32";
+            }
+
+            else if (mysize == "48") {  
+             myimg.src = gapi + myurl + "&sz=48";
+            }
+
+            else if (mysize == "64") {
+             myimg.src = gapi + myurl + "&sz=64";
+            }
+
+            else if (mysize == "128") {
+             myimg.src = gapi + myurl + "&sz=128";
+           }
+        }
+
+        // function checkit()
+        // {
+        //     var targettext=document.getElementById("atext").value;
+        //     alert(isValidURL(targettext));
+        // }
+
+        // function showit()
+        // {
+        //     var thetext=document.getElementById("myoption").value;
+        //     var theimg=document.getElementById("myimage");
+
+        //     if(thetext=="google"){
+        //         theimg.src="https://purepng.com/public/uploads/large/purepng.com-google-logo-2015brandlogobrand-logoiconssymbolslogosgoogle-6815229372333mqrr.png";
+        //     }
+        //     else if(thetext=='bing'){
+        //         theimg.src="https://www.pixelstalk.net/wp-content/uploads/2016/05/Bing-Logo-HD-Wallpaper.jpg"
+        //     }
+        //     else{
+        //         alert("No picture available");
+        //     }
+        // }
+    </script>
+    <!-- <img src="" id="myimage">
+    <select id="myoption">
+        <option value="google">Google</option>
+        <option value="bing">Bing</option>
+        <option value="yahoo">Yahoo</option>
+        <option value="facebook">Facebook</option>
+    </select>
+     -->
+     <!-- <input type="text" id="atext">
+      <input type="submit" value="Click Me" onClick="checkit()"> -->
+      <div class="grid">
+        <h2 align="center">Favicon Grabber</h2>
+        <center><img src="" id="theimg"></center><br>
+        <select id="size">
+            <option value="default">Default Size</option>
+            <option value="16">16x16</option>
+            <option value="32">32x32</option>
+            <option value="48">48x48</option>
+            <option value="64">64x64</option>
+            <option value="128">128x128</option>
+        </select><br><br>
+        <input type="text" placeholder="Enter URL" id="urltext">
+        <br><br>
+        <input type="submit" value="Grab" onClick="startIT()">
+        <p>Developed By Sneha</p>
+      </div>
+      
+</body>
+</html>
