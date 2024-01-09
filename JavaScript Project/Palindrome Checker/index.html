@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Palindrome Checker</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h2>Palindrome Checker</h2>
+        <div class="inputdiv">
+            <input type="text" id="input" placeholder="Enter the string">
+        </div>
+        <div>
+            <button type="submit" onclick="check()">Check</button>
+        </div>
+        <div id="result">
+
+        </div>
+    </div>
+    <script>
+        function check(){
+            let str=document.getElementById("input").value
+            let s=str.split('').reverse().join('')
+            if(str===s){
+               result.innerHTML="Palindrome"
+            }else{
+                result.innerHTML="Not Palindrome"
+            }
+            
+        }
+    </script>
+</body>
+</html>
